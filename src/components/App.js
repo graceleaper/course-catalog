@@ -8,7 +8,8 @@ class App extends Component {
     super();
     this.state = {
       courses: allCourses,
-      tags: []
+      tags: [],
+      coursesForSelectedTag: []
     };
   }
 
@@ -16,7 +17,7 @@ class App extends Component {
     this.getAllTags();
   }
 
-  getAllTags = async () => {
+  getAllTags = () => {
     let tagsTracker = {};
     for (let course = 0; course < allCourses.length; course++) {
       let currentCourse = allCourses[course].tags;
@@ -38,6 +39,10 @@ class App extends Component {
       tags: allTags
     });
   };
+
+  getSpecificCourses = () => {
+    
+  }
 
   render() {
     return (

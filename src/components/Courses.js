@@ -7,7 +7,8 @@ const Courses = props => {
         return (
           <div className="col" key={course.id}>
             <p>{course.title}</p>
-            <p>Tags: {course.tags.sort().join(", ")}</p>
+            <img className="course" alt="course preview" src={course.image}/>
+            <p>{course.description}</p>
           </div>
         );
       })}

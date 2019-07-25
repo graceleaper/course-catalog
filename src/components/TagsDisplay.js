@@ -3,10 +3,10 @@ import React from "react";
 const TagsDisplay = props => {
     console.log(props.tags)
   return (
-    <div>
+    <div className="flex-grid-tags">
       {props.tags.map((tag, index) => {
         return (
-            <div key={index}>
+            <div className="tag" key={index}>
                 <p>{tag.tag} - {tag.count}</p>
             </div>
         );
