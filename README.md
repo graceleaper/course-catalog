@@ -1,5 +1,11 @@
 # Course Catalog React App
 
+A React app that displays a list of computer programming courses. When user clicks on a tag, all courses tagged as such will be displayed.
+
+## Challenges: 
+- Keeping count of all the courses with a specific tag. Resolved using hash table.
+- Displaying tags and course cards in a grid system. Resolved using CSS Flexbox.
+
 ## Objectives (Tier 1)
 
 1. Render a catalog of course cards. Each card shows its course's image and title. Courses found in `src/courses.js`.
