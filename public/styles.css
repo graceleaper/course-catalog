@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+}
+
+.flex-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+}
+
+.col {
+    border: solid;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    padding: 1.5px;
+    width: 30%;
+}
