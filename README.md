@@ -29,6 +29,5 @@ A React app that displays a list of computer programming courses. When user clic
 - Rounded corners for buttons
 - Box shadow for course cards
 - "Pro" tag in border with rounded corners. Also have red background
-- 
 - Animations when rendering all course cards
 - Tag buttons that are darkened/different color when selected

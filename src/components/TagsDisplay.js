@@ -31,9 +31,9 @@ class TagsDisplay extends Component {
             check why we invoke create self invoking
             function when passing info from child to parent component
           */
-            <div onClick={() => this.handleClick(tag)} className="tag" key={index}>
+            <button onClick={() => this.handleClick(tag)} className="tag" key={index}>
                 <p>{tag.tag} ({tag.count})</p>
-            </div>
+            </button>
         );
       })}
     </div>

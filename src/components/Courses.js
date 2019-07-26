@@ -7,9 +7,9 @@ const Courses = props => {
           return (
             <div className="col" key={course.id}>
             <img className="course" alt="course preview" src={course.image} />
-              <p>{course.title}</p>
-              <p>{course.description}</p>
-              {course.pro ? <p>Pro</p> : null}
+              <h3>{course.title}</h3>
+              <p className="description">{course.description}</p>
+              {course.pro ? <p className="pro">Pro</p> : null}
             </div>
           );
         })}
