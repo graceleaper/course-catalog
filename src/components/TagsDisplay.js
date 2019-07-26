@@ -8,21 +8,17 @@ class TagsDisplay extends Component {
     super(props);
     this.state = {
       tagSelected: ''
-      // have a toggle (true or false) for when tag is re-selected
     }
   }
 
   handleClick = (tag) => {
-    console.log(tag)
-    if (this.state.tagSelected === tag.tag) { // switch true or false toggle
-        this.props.reRenderAllCourses()
-        // when toggle is true (the latest thing that was selected), re-render all courses
+    if (this.state.tagSelected === tag.tag) {
+          this.props.reRenderAllCourses()
     } else {
       this.setState({
         tagSelected: tag.tag
       })
-      // console.log(this.props.getSpecificCourses(tag)) // undefined
-      this.props.getSpecificCourses(tag.tag)
+      this.props.getSpecificCourses(tag)
     }
   }
 
