@@ -23,3 +23,7 @@ A React app that displays a list of computer programming courses. When user clic
    - Fetch course authors asyncronously from an endpoint in `src/fetchAuthorData.js`.
 2. Make the grid and tags list responsive
 3. Use  CSS skills to redesign the page, add animations, or any other changes to improve the user experience.
+
+###CSS Ideas:
+- Animations when rendering all course cards
+- Tag buttons that are darkened/different color when selected

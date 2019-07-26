@@ -1,5 +1,6 @@
 h1 {
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .tag {
@@ -13,19 +14,21 @@ h1 {
 .flex-grid {
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
-    width: 80%;
-    justify-content: center;
+    padding-left: 5%;
+
 }
 
 .flex-grid-tags {
     display: flex;
+    justify-content: center;
     flex-wrap: nowrap;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .col {
+    justify-content: start;
+    display: inline-block;
     text-align: center;
     border: solid;
     margin-bottom: 15px;
