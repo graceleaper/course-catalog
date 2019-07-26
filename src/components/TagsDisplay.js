@@ -7,17 +7,22 @@ class TagsDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tagSelected: false
+      tagSelected: ''
+      // have a toggle (true or false) for when tag is re-selected
     }
   }
 
-  handleClick = () => {
-    this.setState({
-      tagSelected: !this.state.tagSelected
-    })
-
-    if (this.state.tagSelected === false) {
-      this.props.reRenderAllCourses();
+  handleClick = (tag) => {
+    console.log(tag)
+    if (this.state.tagSelected === tag.tag) { // switch true or false toggle
+        this.props.reRenderAllCourses()
+        // when toggle is true (the latest thing that was selected), re-render all courses
+    } else {
+      this.setState({
+        tagSelected: tag.tag
+      })
+      // console.log(this.props.getSpecificCourses(tag)) // undefined
+      this.props.getSpecificCourses(tag.tag)
     }
   }
 
@@ -30,7 +35,7 @@ class TagsDisplay extends Component {
             check why we invoke create self invoking
             function when passing info from child to parent component
           */
-            <div onClick={() => { this.props.getSpecificCourses(tag); this.handleClick() }} className="tag" key={index}>
+            <div onClick={() => this.handleClick(tag)} className="tag" key={index}>
                 <p>{tag.tag} - {tag.count}</p>
             </div>
         );

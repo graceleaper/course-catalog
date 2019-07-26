@@ -48,7 +48,6 @@ class App extends Component {
     let selectedCourses = [];
     for (let course = 0; course < allCourses.length; course++) {
       let currentCourse = allCourses[course];
-      console.log(tag);
       if (currentCourse.tags.includes(tag.tag)) {
         selectedCourses.push(currentCourse);
       }
