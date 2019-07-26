@@ -5,6 +5,7 @@ A React app that displays a list of computer programming courses. When user clic
 ## Challenges: 
 - Keeping count of all the courses with a specific tag. Resolved using hash table.
 - Displaying tags and course cards in a grid system. Resolved using CSS Flexbox.
+- When trying to access tag as an argument for getSpecificCourses(), courses on click wouldn't render. Resolved with console.logging and finding out that I was initially fetching the tag object ({tag: tagName, count: 4}) when I should have used the tag key and value (tagObj.tag)
 
 ## Objectives (Tier 1)
 
