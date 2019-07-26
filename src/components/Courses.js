@@ -6,8 +6,8 @@ const Courses = props => {
         {props.courses.map(course => {
           return (
             <div className="col" key={course.id}>
+            <img className="course" alt="course preview" src={course.image} />
               <p>{course.title}</p>
-              <img className="course" alt="course preview" src={course.image} />
               <p>{course.description}</p>
               {course.pro ? <p>Pro</p> : null}
             </div>

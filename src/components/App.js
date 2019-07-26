@@ -66,7 +66,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Computer Programming Courses</h1>
+        <div className="header">
+            <h1>Course Catalog</h1>
+            <img className="logo" alt="coding" src="https://assets.webiconspng.com/uploads/2017/01/Programming-Coding-Icon-300x300.png" />
+        </div>
         <TagsDisplay
           tags={this.state.tags}
           getSpecificCourses={this.getSpecificCourses}

@@ -25,5 +25,10 @@ A React app that displays a list of computer programming courses. When user clic
 3. Use  CSS skills to redesign the page, add animations, or any other changes to improve the user experience.
 
 ###CSS Ideas:
+- Google font(s) for entire page
+- Rounded corners for buttons
+- Box shadow for course cards
+- "Pro" tag in border with rounded corners. Also have red background
+- 
 - Animations when rendering all course cards
 - Tag buttons that are darkened/different color when selected

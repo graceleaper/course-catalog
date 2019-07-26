@@ -32,7 +32,7 @@ class TagsDisplay extends Component {
             function when passing info from child to parent component
           */
             <div onClick={() => this.handleClick(tag)} className="tag" key={index}>
-                <p>{tag.tag} - {tag.count}</p>
+                <p>{tag.tag} ({tag.count})</p>
             </div>
         );
       })}
