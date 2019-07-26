@@ -68,7 +68,7 @@ class App extends Component {
       <div>
         <div className="header">
             <h1>Course Catalog</h1>
-            <img className="logo" alt="coding" src="https://assets.webiconspng.com/uploads/2017/01/Programming-Coding-Icon-300x300.png" />
+            <img className="logo" alt="coding" src="https://cdn0.iconfinder.com/data/icons/flaturici-set-5/512/code-512.png" />
         </div>
         <TagsDisplay
           tags={this.state.tags}
