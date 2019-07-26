@@ -7,13 +7,17 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      courses: allCourses,
+      courses: [],
       tags: [],
       coursesForSelectedTag: []
     };
   }
 
   componentDidMount() {
+    this.setState({
+      courses: allCourses
+    });
+
     this.getAllTags();
   }
 
@@ -33,22 +37,32 @@ class App extends Component {
     let tagsOrdered = Object.keys(tagsTracker).sort();
     let allTags = [];
     tagsOrdered.forEach(function(tag) {
-        allTags.push({tag: tag, count: tagsTracker[tag]})
+        allTags.push({tag: tag, count: tagsTracker[tag]});
     });
     this.setState({
       tags: allTags
     });
   };
 
-  getSpecificCourses = () => {
-    
+  getSpecificCourses = (tag) => {
+    let selectedCourses = [];
+    for (let course = 0; course < allCourses.length; course++) {
+      let currentCourse = allCourses[course];
+      console.log(tag);
+      if (currentCourse.tags.includes(tag.tag)) {
+        selectedCourses.push(currentCourse);
+      }
+    }
+    this.setState({
+      courses: selectedCourses
+    })
   }
 
   render() {
     return (
       <div>
         <h1>Computer Programming Courses</h1>
-        <TagsDisplay tags={this.state.tags} />
+        <TagsDisplay tags={this.state.tags} getSpecificCourses={this.getSpecificCourses} />
         <Courses courses={this.state.courses} />
       </div>
     );
