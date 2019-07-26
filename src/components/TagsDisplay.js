@@ -7,7 +7,17 @@ class TagsDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      tagSelected: false
+    }
+  }
 
+  handleClick = () => {
+    this.setState({
+      tagSelected: !this.state.tagSelected
+    })
+
+    if (this.state.tagSelected === false) {
+      this.props.reRenderAllCourses();
     }
   }
 
@@ -16,7 +26,11 @@ class TagsDisplay extends Component {
     <div className="flex-grid-tags">
       {this.props.tags.map((tag, index) => {
         return (
-            <div onClick={() => this.props.getSpecificCourses(tag)} className="tag" key={index}>
+          /*
+            check why we invoke create self invoking
+            function when passing info from child to parent component
+          */
+            <div onClick={() => { this.props.getSpecificCourses(tag); this.handleClick() }} className="tag" key={index}>
                 <p>{tag.tag} - {tag.count}</p>
             </div>
         );

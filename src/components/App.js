@@ -58,11 +58,21 @@ class App extends Component {
     })
   }
 
+  reRenderAllCourses = () => {
+    this.setState({
+      courses: allCourses
+    })
+  }
+
   render() {
     return (
       <div>
         <h1>Computer Programming Courses</h1>
-        <TagsDisplay tags={this.state.tags} getSpecificCourses={this.getSpecificCourses} />
+        <TagsDisplay
+          tags={this.state.tags}
+          getSpecificCourses={this.getSpecificCourses}
+          reRenderAllCourses={this.reRenderAllCourses}
+        />
         <Courses courses={this.state.courses} />
       </div>
     );
