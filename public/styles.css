@@ -32,12 +32,12 @@ h3 {
 .tag:focus,
 .tag:hover {
   outline: none;
-  background-color: #788fc4;
+  background-color: #05116f;
 }
 
 .tag {
-  border-color: #6e8ed7;
-  background-color: #547ad3;
+  border-color:#416dd3;
+  background-color: #416dd3;
   color: #fefefe;
   border: solid;
   border-radius: 50px;
@@ -60,7 +60,7 @@ h3 {
   margin-bottom: 50px;
 }
 
-@keyframes fadeInOut {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -68,7 +68,7 @@ h3 {
     opacity: 0.2;
   }
   84% {
-    opacity: 0.8;
+    opacity: 0.6;
   }
   100% {
     opacity: 1;
@@ -76,13 +76,13 @@ h3 {
 }
 
 .col {
-  -webkit-animation: fadeInOut 1.5s;
-  animation: fadeInOut 1.5s;
+  -webkit-animation: fadeIn 1.5s;
+  animation: fadeIn 1.5s;
   justify-content: start;
   display: inline-block;
   text-align: center;
   border: solid;
-  border-color: #dedddd;
+  border-color: #ebebeb;
   border-width: 2px;
   margin-bottom: 15px;
   margin-right: 15px;

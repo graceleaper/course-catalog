@@ -27,11 +27,13 @@ class App extends Component {
       let currentCourse = allCourses[course].tags;
       for (let tagsList = 0; tagsList < currentCourse.length; tagsList++) {
         let currentTag = currentCourse[tagsList];
-        if (!tagsTracker[currentTag]) {
-            tagsTracker[currentTag] = 1;
-        } else {
-            tagsTracker[currentTag]++;
-        }
+        // if (!tagsTracker[currentTag]) {
+        //     tagsTracker[currentTag] = 1;
+        // } else {
+        //     tagsTracker[currentTag]++;
+        // }
+        if (!tagsTracker[currentTag]) tagsTracker[currentTag] = 0;
+        tagsTracker[currentTag]++;
       }
     }
     let tagsOrdered = Object.keys(tagsTracker).sort();

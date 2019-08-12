@@ -60,4 +60,4 @@ const allCourses = [
     }
   ];
   
-  export default allCourses
+  export default allCourses;
