@@ -11,14 +11,28 @@ class TagsDisplay extends Component {
     }
   }
 
+  /* 
+    tag that is passed into handleClick is an object with 
+    key/value pairs of a tag name and its count (or # of times 
+    it appears). This object with this tag information is an 
+    element from the allTagsWithCount array that is mapped over
+    from this.props.map 
+  */
   handleClick = (tag) => {
     if (this.state.tagSelected === tag.tag) {
           this.props.reRenderAllCourses()
     } else {
+      /* 
+        if the tag selected was NOT just previously selected,
+        set state to the selected tag
+      */
       this.setState({
-        tagSelected: tag.tag
+        tagSelected: tag.tag // first tag is an object that contains tag name "tag" and "count"
       })
-      this.props.getSpecificCourses(tag)
+      /*
+        after tag selection, render SPECIFIC courses for THAT tag
+      */
+      this.props.getSpecificCourses(tag) // remember, tag is an obj that contains "tag" name and "count"
     }
   }
 
