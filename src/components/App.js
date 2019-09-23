@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Courses from "./Courses";
 import TagsDisplay from "./TagsDisplay";
-import allCourses from "../courses";
+import allCourses from "../allCourses";
 
 class App extends Component {
   /*
@@ -33,29 +33,35 @@ class App extends Component {
       count (the # of times they appear throughout all courses) 
     */
     let tagsTracker = {};
-    for (let course = 0; course < allCourses.length; course++) {
-      let currentCourse = allCourses[course].tags;
-      for (let tagsList = 0; tagsList < currentCourse.length; tagsList++) {
-        let currentTag = currentCourse[tagsList];
-        // if (!tagsTracker[currentTag]) {
-        //     tagsTracker[currentTag] = 1;
-        // } else {
-        //     tagsTracker[currentTag]++;
-        // }
+
+    allCourses.forEach((currentCourse) => {
+      let currentCourseTags = currentCourse.tags;
+      currentCourseTags.forEach((currentTag) => {
         if (!tagsTracker[currentTag]) tagsTracker[currentTag] = 0;
         tagsTracker[currentTag]++;
-      }
-    }
-    let tagsOrdered = Object.keys(tagsTracker).sort();
-    /*
-      allTags will be an array, where each element is an object
-      containing a tag name and the # of times it appears. This
-      array will be mapped over in order to display all the tags 
-    */
-    let allTags = [];
-    tagsOrdered.forEach(function(tag) {
-        allTags.push({tag: tag, count: tagsTracker[tag]});
+      })
     });
+
+    /*
+      (1) get the keys from tagsTracker object
+      (2) put them into an array
+      (3) sort the array
+    */
+
+    let tagsOrdered = Object.keys(tagsTracker).sort();
+
+    /*
+      Map tagsOrdered. At each element, return an object with the tag name AND count
+
+      allTags will be an array, where each element is an object
+      containing a tag name and the # of times it appears
+    */
+
+    let allTags = tagsOrdered.map(tag => {
+      return {tag, count: tagsTracker[tag]}
+    })
+
+
     this.setState({
       tags: allTags
     });

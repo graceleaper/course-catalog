@@ -1,4 +1,4 @@
-const allCourses = [
+export default [
     {
       id: 1,
       slug: "learn-javascript",
@@ -59,5 +59,3 @@ const allCourses = [
       pro: true
     }
   ];
-  
-  export default allCourses;

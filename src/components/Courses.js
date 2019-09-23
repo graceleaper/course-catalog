@@ -1,6 +1,8 @@
 import React from "react";
+import fetchAuthorData from "../fetchAuthorData";
 
 const Courses = props => {
+  console.log(fetchAuthorData())
   return (
       <div className="flex-grid">
         {props.courses.map(course => {

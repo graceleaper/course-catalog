@@ -16,7 +16,7 @@ class TagsDisplay extends Component {
     key/value pairs of a tag name and its count (or # of times 
     it appears). This object with this tag information is an 
     element from the allTagsWithCount array that is mapped over
-    from this.props.map 
+    from this.props.tags.map 
   */
   handleClick = (tag) => {
     if (this.state.tagSelected === tag.tag) {
