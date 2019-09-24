@@ -1,6 +1,6 @@
 import React from "react";
-// import fetchAuthorData from "../fetchAuthorData";
-import axios from 'axios'
+import fetchAuthorData from "../fetchAuthorData";
+// import axios from 'axios'
 
 class Courses extends React.Component {
 
@@ -9,9 +9,9 @@ class Courses extends React.Component {
   }
 
   async componentDidMount() {
-    // const response = await fetchAuthorData.get()
     try {
-      const response = await axios.get('https://s3.us-east-2.amazonaws.com/codecademy-interview/entities.json')
+      // const response = await axios.get('https://s3.us-east-2.amazonaws.com/codecademy-interview/entities.json')
+      const response = await fetchAuthorData.get()
       const authors = response.data.authors
       this.setState({authors: authors})
     } catch (err) {
@@ -20,7 +20,6 @@ class Courses extends React.Component {
   }
 
   render() {
-    console.log(this.state.authors['123'])
     const allCourses = this.props.courses.map(course => {
       return (
         <div className="col" key={course.id}>
