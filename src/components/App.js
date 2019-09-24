@@ -4,24 +4,15 @@ import TagsDisplay from "./TagsDisplay";
 import allCourses from "../allCourses";
 
 class App extends Component {
-  /*
-  constructor() {
-    super();
-    this.state = {
-      courses: [],
-      tags: []
-    };
-  }
-  */
 
  state = {
   courses: [],
   tags: []
 };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setState({
-      courses: allCourses
+      courses: await allCourses
     });
 
     this.getAllTags();
@@ -60,7 +51,6 @@ class App extends Component {
     let allTags = tagsOrdered.map(tag => {
       return {tag, count: tagsTracker[tag]}
     })
-
 
     this.setState({
       tags: allTags
