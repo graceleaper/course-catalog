@@ -58,13 +58,13 @@ class App extends Component {
   };
 
   /*
-    "tag" that is being passed in is an object with
+    "tagObj" that is being passed in is an object with
     key/value of "tag" name and its "count"
   */
-  getSpecificCourses = (tag) => {
+  getSpecificCourses = (tagObj) => {
 
     let selectedCourses = allCourses.filter((currentCourse) => {
-      return currentCourse.tags.includes(tag.tag)
+      return currentCourse.tags.includes(tagObj.tag)
     })
 
     this.setState({

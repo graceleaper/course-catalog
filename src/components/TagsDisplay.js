@@ -1,6 +1,3 @@
-// https://www.reddit.com/r/reactjs/comments/ai4nel/error_help_please_d_maximum_update_depth_exceeded/
-// ^ don't want to call the callback on every render
-
 import React, { Component } from "react";
 
 class TagsDisplay extends Component {
@@ -18,8 +15,9 @@ class TagsDisplay extends Component {
     element from the allTagsWithCount array that is mapped over
     from this.props.tags.map 
   */
-  handleClick = (tag) => {
-    if (this.state.tagSelected === tag.tag) {
+
+  handleClick = (tagObj) => {
+    if (this.state.tagSelected === tagObj.tag) {
           this.props.reRenderAllCourses()
     } else {
       /* 
@@ -27,29 +25,31 @@ class TagsDisplay extends Component {
         set state to the selected tag
       */
       this.setState({
-        tagSelected: tag.tag // first tag is an object that contains tag name "tag" and "count"
+        tagSelected: tagObj.tag // first tag is an object that contains tag name "tag" and "count"
       })
       /*
         after tag selection, render SPECIFIC courses for THAT tag
       */
-      this.props.getSpecificCourses(tag) // remember, tag is an obj that contains "tag" name and "count"
+      this.props.getSpecificCourses(tagObj) // remember, tagObj is an obj that contains "tag" name and "count"
     }
   }
 
   render() {
+  const allTags = this.props.tags.map((tagObj, index) => {
+    return (
+      /*
+        check why we invoke create self invoking
+        function when passing info from child to parent component
+      */
+        <button onClick={() => this.handleClick(tagObj)} className="tag" key={index}>
+            <p>{tagObj.tag} ({tagObj.count})</p>
+        </button>
+    );
+  })
+
   return (
     <div className="flex-grid-tags">
-      {this.props.tags.map((tag, index) => {
-        return (
-          /*
-            check why we invoke create self invoking
-            function when passing info from child to parent component
-          */
-            <button onClick={() => this.handleClick(tag)} className="tag" key={index}>
-                <p>{tag.tag} ({tag.count})</p>
-            </button>
-        );
-      })}
+      {allTags}
     </div>
   );
     }
