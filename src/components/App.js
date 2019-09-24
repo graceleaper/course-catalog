@@ -72,13 +72,11 @@ class App extends Component {
     key/value of "tag" name and its "count"
   */
   getSpecificCourses = (tag) => {
-    let selectedCourses = [];
-    for (let course = 0; course < allCourses.length; course++) {
-      let currentCourse = allCourses[course];
-      if (currentCourse.tags.includes(tag.tag)) {
-        selectedCourses.push(currentCourse);
-      }
-    }
+
+    let selectedCourses = allCourses.filter((currentCourse) => {
+      return currentCourse.tags.includes(tag.tag)
+    })
+
     this.setState({
       courses: selectedCourses
     })
