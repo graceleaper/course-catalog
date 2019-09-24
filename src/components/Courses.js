@@ -1,53 +1,34 @@
 import React from "react";
-import fetchAuthorData from "../fetchAuthorData";
+// import fetchAuthorData from "../fetchAuthorData";
+import axios from 'axios'
 
 class Courses extends React.Component {
 
   state = {
-    authors: []
+    authors: {}
   }
 
-  /*
-    - return authors object in fetchAuthors
-    - hashmap --> an array with objects as elements -- each obj will have course id & author name
-    - set state to be an array (the hashmap)
-  */
-
-  fetchAuthors = async () => {
-    const response = await fetchAuthorData.get()
-    // this.setState({authors: response.data.authors})
-    return response.data.authors
-  }
-
-  componentDidMount() {
-    this.defineAuthors()
-  }
-
-  defineAuthors = async () => {
-    const authorsObj = await this.fetchAuthors()
-    let authorIds = Object.keys(authorsObj)
-    let authorNames = []
-    for (let key in authorsObj) {
-      authorNames.push(authorsObj[key])
+  async componentDidMount() {
+    // const response = await fetchAuthorData.get()
+    try {
+      const response = await axios.get('https://s3.us-east-2.amazonaws.com/codecademy-interview/entities.json')
+      const authors = response.data.authors
+      this.setState({authors: authors})
+    } catch (err) {
+      console.log(err)
     }
-
-    const allAuthorInfo = authorIds.map((id) => {
-      return authorNames.map((name) => {
-        return {id: id, name: name.name}
-      })
-    })
-
-    this.setState({authors: allAuthorInfo})
-    console.log(this.state.authors)
   }
 
   render() {
+    console.log(this.state.authors['123'])
     const allCourses = this.props.courses.map(course => {
       return (
         <div className="col" key={course.id}>
         <img className="course" alt="course preview" src={course.image} />
           <h3>{course.title}</h3>
           <p className="description">{course.description}</p>
+          {/* Because of async request to API, have ternary to show author name based on if state was set */}
+          {this.state.authors[course.author_id] ? <p>Author: {this.state.authors[course.author_id].name}</p> : null}
           {course.pro ? <p className="pro">Pro</p> : null}
 
         </div>
